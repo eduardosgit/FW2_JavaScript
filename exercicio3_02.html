@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Exercicio 03 - 02</title>
+    <style>
+        ol {
+            background-color: gray;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+    </style>
+    <script>
+         
+        var num = prompt("Informe a quantidade de pessoas:");
+        var pessoas = new Array(num);
+        for (i = 0; i < num; i++) {
+            pessoas[i] = prompt("Informe o nome da " + (i + 1) + "ª pessoa:");
+        }    
+        function gerarNumero(limInf, limSup) {
+            return parseInt(Math.random() * (limSup - limInf) + limInf + 0.5);
+        }
+
+        function sortearGrupo() {
+            ordemGrupo = new Array(num);
+            for (i = 0; i < num; i++) {
+                x = gerarNumero(0, pessoas.length - 1);
+                ordemGrupo[i] = pessoas.splice(x, 1);
+            }
+            document.write("<h2>Ordem de apresentação dos grupos:</h2>");
+            document.write("<ol>");
+            for (i = 0; i < ordemGrupo.length; i++)
+                document.write("<li>" + ordemGrupo[i] + "</li>");
+            document.write("</ol>");
+        }
+        sortearGrupo();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

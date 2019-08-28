@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Exercicio 03 - 03</title>
+    <style>
+
+        img {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        .titulo {
+            margin: auto;
+            text-align: center;
+        }
+
+        .subtitulo {
+            color: red;
+            text-align: center;
+        }
+
+        .conteudo {
+            text-align: center;
+            margin: 20px 0 20px 0;
+        }
+    </style>
+    <script>
+        var cartasBaralho = new Array(27);
+        var jogadores = new Array(4);
+
+        for(i = 0; i < cartasBaralho.length; i++) {
+            cartasBaralho[i] = "carta" + (i+1) +".png";
+        }    
+        
+        function gerarNumero(limInf, limSup) {
+            return parseInt(Math.random() * (limSup - limInf) + limInf + 0.5);
+        }
+
+        document.write("<div class='titulo'><h1>JOGUE TRUCO</h1></div>");
+        document.write("<div class='subtitulo'><h3>Cartas sorteadas</h3></div>");
+
+        function sortearCartas() {
+            cartaSorteada = new Array(3);
+            for(j = 1; j < 5; j++) {
+                document.write("<div class='conteudo'>");
+                document.write("<p> Cartas do jogador " + j + ": ");
+                for (i = 0; i < cartaSorteada.length; i++) {
+                    x = gerarNumero(0, cartasBaralho.length - 1);
+                    cartaSorteada[i] = cartasBaralho.splice(x, 1);
+                    
+                     document.write("<img src='cartas/" + cartaSorteada[i] + "' width='5%' >");
+                }    
+                document.write("</p></div>");
+            }
+        }
+
+        sortearCartas();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
